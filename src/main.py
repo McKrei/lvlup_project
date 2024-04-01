@@ -1,21 +1,44 @@
-from fastapi import FastAPI, HTTPException, Depends
-from fastapi.responses import JSONResponse
-from fastapi import status
-from pydantic import BaseModel
-from sqlalchemy.ext.asyncio import AsyncSession
+from contextlib import asynccontextmanager
 
-from database.database import create_all, drop_all, get_session
-from database.models import User
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
+from database.database import create_tables
 from user.router import router as user_router
+from asset_type.router import router as asset_type_router
+from asset.router import router as asset_router
+from portfolio.router import router as portfolio_router
+from transaction.router import router as transaction_router
+from ip_weather.router import router as ip_weather_router
+from frontend.router import router as frontend_router
 
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Приложение запускается...")
+    # await create_tables()
+    yield
+    print("Приложение останавливается...")
+
+
+app = FastAPI(lifespan=lifespan)
+app.mount("/assets", StaticFiles(directory="frontend/assets"), name="assets")
 
 app.include_router(user_router)
+app.include_router(asset_type_router)
+app.include_router(asset_router)
+app.include_router(portfolio_router)
+app.include_router(transaction_router)
+app.include_router(ip_weather_router)
+app.include_router(frontend_router)
 
 
-@app.get("/update_table")
-async def update_table():
-    await drop_all()
-    await create_all()
-    return 200
+
+@app.on_event("startup")
+async def startup_event():
+    print("Приложение запускается 2...")
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    print("Приложение останавливается 2...")

@@ -4,8 +4,8 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Numeric, DateTime, E
 from sqlalchemy.orm import declarative_base, relationship
 import enum
 
-
 from database.database import Base
+
 
 
 class TransactionType(enum.Enum):
@@ -20,9 +20,11 @@ class User(Base):
     username = Column(String, unique=True)
     email = Column(String, unique=True)
     password = Column(String)
-
     asset_types = relationship("AssetType", back_populates="user")
     portfolios = relationship("Portfolio", back_populates="user")
+
+    def __str__(self):
+        return f'User: {self.username} Email: {self.email} ID: {self.id}'
 
 
 class AssetType(Base):
@@ -30,7 +32,6 @@ class AssetType(Base):
     id = Column(Integer, primary_key=True)
     type_name = Column(String)
     user_id = Column(Integer, ForeignKey("user.id"))
-
     user = relationship("User", back_populates="asset_types")
     assets = relationship("Asset", back_populates="asset_type")
 
@@ -41,7 +42,6 @@ class Portfolio(Base):
     name = Column(String)
     description = Column(String)
     user_id = Column(Integer, ForeignKey("user.id"))
-
     user = relationship("User", back_populates="portfolios")
     assets = relationship("Asset", back_populates="portfolio")
 
@@ -56,7 +56,6 @@ class Asset(Base):
     commission = Column(Numeric)
     portfolio_id = Column(Integer, ForeignKey("portfolio.id"))
     asset_type_id = Column(Integer, ForeignKey("asset_type.id"))
-
     portfolio = relationship("Portfolio", back_populates="assets")
     asset_type = relationship("AssetType", back_populates="assets")
     transactions = relationship("Transaction", back_populates="asset")
@@ -69,6 +68,5 @@ class Transaction(Base):
     created_at = Column(DateTime, default=datetime.now)
     quantity = Column(Numeric)
     price = Column(Numeric)
-    
     asset_id = Column(Integer, ForeignKey("asset.id"))
     asset = relationship("Asset", back_populates="transactions")

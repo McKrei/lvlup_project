@@ -1,10 +1,10 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from database.models import Asset
+from database.models import AssetType
 from database.crud_base import CRUDBaseByUser
 
 
 
-class CRUDAsset(CRUDBaseByUser):
-    model = Asset
+class CRUDAssetType(CRUDBaseByUser):
+    model = AssetType

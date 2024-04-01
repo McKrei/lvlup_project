@@ -1,0 +1,69 @@
+
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  background-color: #f4f4f9; /* Светлый фон для всей страницы */
+}
+
+.navbar {
+  background-color: #ffffff; /* Белый фон для шапки */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для добавления глубины */
+}
+
+.navbar-brand,
+.nav-link {
+  color: #5e4b8b !important; /* Темно-фиолетовый текст */
+}
+
+.nav-link {
+  margin: 0 10px;
+  border-radius: 20px; /* Скругленные углы */
+  transition: background-color 0.3s, color 0.3s; /* Плавные переходы */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #e9ecef; /* Светлый фон при наведении */
+  color: #7e57c2 !important; /* Ярко-фиолетовый текст */
+}
+
+.navbar-toggler {
+  border-color: rgba(0, 0, 0, 0); /* Прозрачная граница для кнопки меню */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(94, 75, 139, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  /* Кастомная иконка меню */
+}
+
+/* Стили для выпадающего меню */
+.dropdown-menu {
+  border-radius: 0.5rem; /* Скругление углов выпадающего списка */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Тень для выпадающего списка */
+}
+
+.dropdown-item {
+  transition: background-color 0.3s, color 0.3s; /* Плавные переходы */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #7e57c2; /* Ярко-фиолетовый фон */
+  color: #ffffff !important; /* Белый текст */
+}
+
+/* Стили контента */
+h1 {
+  color: #5e4b8b; /* Темно-фиолетовый цвет заголовков */
+}
+
+p {
+  color: #6c757d; /* Цвет текста */
+}
+
+/* Стиль для активного элемента выпадающего списка профиля */
+.dropdown-item:active {
+  background-color: #5e4b8b;
+  color: #ffffff !important;
+}

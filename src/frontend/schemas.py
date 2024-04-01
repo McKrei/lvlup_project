@@ -1,5 +1,7 @@
-from typing import Optional
-from pydantic import BaseModel
+from datetime import datetime
+from typing import List, Optional
+from pydantic import BaseModel, EmailStr, condecimal, validator
+from enum import Enum
 
 
 class PortfolioBase(BaseModel):

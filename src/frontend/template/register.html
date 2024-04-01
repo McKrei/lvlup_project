@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>InvestiTrack: Регистрация</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/auth.css" />
+
+</head>
+
+<body>
+    <div class="registration-container">
+        <div class="registration-form">
+            <div class="logo">
+                <img src="/assets/img/logo.png" alt="Логотип"> <!-- Путь к вашему логотипу -->
+            </div>
+            <h4 class="text-center mb-4">Регистрация</h4>
+            <form id="formRegister" class="mb-3" action="user/register" method="post">
+                <div class="form-group">
+                    <label for="username">Имя пользователя</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-block btn-custom">Зарегистрироваться</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="/auth">Уже зарегистрированы? Войти</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

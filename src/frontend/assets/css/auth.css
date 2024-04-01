@@ -1,0 +1,54 @@
+.registration-container {
+    min-height: 100vh; /* Занимает минимальную высоту во всю высоту экрана */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa; /* Светлый фон всей страницы */
+  }
+
+  .registration-form {
+    padding: 25px;
+    background-color: #fff; /* Белый фон формы */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Небольшая тень для формы */
+    width: 100%;
+    max-width: 400px; /* Максимальная ширина формы */
+    border: 2px solid #771aa2; /* Фиолетовая рамка вокруг формы */
+  }
+
+  .logo {
+    margin-bottom: 20px; /* Отступ от логотипа до начала формы */
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo img {
+    max-width: 100px; /* Максимальная ширина логотипа */
+  }
+
+  .btn-custom {
+    border-radius: 7px; /* Скругление углов кнопки */
+    background-color: #771aa2; /* Фиолетовый */
+    border: none;
+    color: #ffffff; /* Белый текст */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Плавные переходы */
+  }
+
+  .btn-custom:hover {
+    background-color: #ffffff; /* Светлый фон при наведении */
+    color: #000000; /* Черный текст */
+    box-shadow: 0 0 10px #771aa2; /* Подсветка вокруг кнопки */
+  }
+
+  a {
+    color: #771aa2; /* Фиолетовый цвет ссылок */
+    transition: color 0.3s, text-decoration 0.3s; /* Плавный переход для цвета и подчеркивания */
+
+  }
+
+  a:hover {
+    color: #000000; /* Черный текст при наведении */
+    text-decoration: none; /* Убираем подчеркивание при наведении */
+    box-shadow: 0 2px #771aa2; /* Подсветка внизу текста */
+  }
+
