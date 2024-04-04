@@ -41,7 +41,6 @@ async def login_for_access_token_frontend(
     return response
 
 
-
 @router.post("/register")
 async def register_user(
     username: str = Form(...),

@@ -1,5 +1,3 @@
-
-
 body {
   margin: 0;
   font-family: 'Nunito Sans', Arial, sans-serif;
@@ -57,6 +55,9 @@ body {
 h1 {
   color: #5e4b8b; /* Темно-фиолетовый цвет заголовков */
 }
+h2 {
+  color: #5b468d; /* Темно-фиолетовый цвет заголовков */
+}
 
 p {
   color: #6c757d; /* Цвет текста */
@@ -66,4 +67,119 @@ p {
 .dropdown-item:active {
   background-color: #5e4b8b;
   color: #ffffff !important;
+}
+
+/* Стили для таблицы Портфели */
+.table {
+  background-color: #ffffff; /* Белый фон для таблицы */
+  color: #5e4b8b; /* Темно-фиолетовый текст, аналогичный остальному контенту */
+  border-collapse: separate;
+  border-spacing: 0 15px; /* Расстояние между строками */
+}
+
+.table th,
+.table td {
+  border-top: none !important; /* Убрать верхние границы у ячеек */
+  vertical-align: middle; /* Выравнивание содержимого по центру по вертикали */
+}
+
+.table thead th {
+  background-color: #e9ecef; /* Светлый фон для заголовков таблицы */
+  color: #5e4b8b; /* Темно-фиолетовый текст для заголовков */
+  border-bottom: 2px solid #dee2e6; /* Граница для нижней части заголовка таблицы */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa; /* Светлый фон при наведении на строку */
+}
+
+/* Стили для кнопок и ссылок внутри таблицы */
+.table .btn,
+.table a {
+  color: #7e57c2; /* Ярко-фиолетовый текст для ссылок и кнопок */
+  transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.table .btn:hover,
+.table a:hover {
+  color: #5e4b8b; /* Темно-фиолетовый текст при наведении */
+}
+
+/* Специальные стили для ячеек таблицы для улучшения читаемости */
+.table td {
+  padding: .5rem; /* Отступы внутри ячеек */
+}
+
+/* Стилизация границ и скругления углов таблицы */
+.table-rounded {
+  border-radius: .5rem; /* Скругленные углы таблицы */
+  overflow: hidden; /* Обрезать содержимое по углам */
+}
+
+/* Добавление тени для таблицы для соответствия дизайну навбара */
+.table-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень аналогично навбару */
+}
+
+/* Стили для форм */
+.form-label {
+  color: #5e4b8b; /* Темно-фиолетовый текст для меток */
+}
+
+.form-control {
+  border-radius: 20px; /* Скругленные углы для полей ввода */
+  border: 1px solid #ced4da; /* Светло-серая граница */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Плавные переходы */
+}
+
+.form-control:hover,
+.form-control:focus {
+  border-color: #771aa2; /* Фиолетовая граница при наведении/фокусе */
+  box-shadow: 0 0 0 0.25rem rgba(119, 26, 162, 0.25); /* Слабое свечение вокруг поля */
+}
+
+.btn {
+  border-radius: 20px; /* Скругленные углы для кнопок */
+}
+
+.btn-primary {
+  background-color: #8e44b0; /* Фиолетовый фон */
+  border: none;
+  color: #ffffff; /* Белый текст */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Плавные переходы */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #dfd2fc; /* Темно-фиолетовый фон при наведении/фокусе */
+  color: #000000; /* Белый текст */
+  box-shadow: 0 0 10px rgba(119, 26, 162, 0.5); /* Подсветка вокруг кнопки */
+}
+
+/* Стили для выпадающего списка Select2 */
+.select2-container--default .select2-selection--single {
+  border-radius: 1rem; /* Закругленные углы */
+  border-color: #ced4da; /* Цвет границы */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Плавные переходы для границы и тени */
+  padding: 0.4rem 0rem 0.1rem 0.2rem; /* Увеличенные отступы внутри поля */
+  height: calc(1.5em + 1rem + 2px); /* Фиксированная высота поля */
+}
+
+.select2-container--default .select2-selection--single:focus {
+  border-color: #771aa2; /* Фиолетовая граница при фокусе */
+  box-shadow: 0 0 0 0.25rem rgba(119, 26, 162, 0.25); /* Слабое фиолетовое свечение при фокусе */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 2rem; /* Выравнивание текста по вертикали */
+  padding-right: 2rem; /* Отступ от стрелки */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: calc(1.5em + 1rem); /* Выравнивание стрелки по вертикали */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  line-height: 2rem; /* Выравнивание плейсхолдера по вертикали */
+  padding-right: 2rem; /* Отступ от стрелки */
 }

@@ -7,7 +7,6 @@ import enum
 from database.database import Base
 
 
-
 class TransactionType(enum.Enum):
     Buy = "Buy"
     Sell = "Sell"
@@ -24,7 +23,7 @@ class User(Base):
     portfolios = relationship("Portfolio", back_populates="user")
 
     def __str__(self):
-        return f'User: {self.username} Email: {self.email} ID: {self.id}'
+        return f"User: {self.username} Email: {self.email} ID: {self.id}"
 
 
 class AssetType(Base):
