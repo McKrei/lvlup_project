@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Column, ForeignKey, Integer, String, Numeric, DateTime, Enum
+from sqlalchemy import Column, ForeignKey, Integer, String, Float, DateTime, Enum
 from sqlalchemy.orm import declarative_base, relationship
 import enum
 
@@ -29,7 +29,7 @@ class User(Base):
 class AssetType(Base):
     __tablename__ = "asset_type"
     id = Column(Integer, primary_key=True)
-    type_name = Column(String)
+    name = Column(String)
     user_id = Column(Integer, ForeignKey("user.id"))
     user = relationship("User", back_populates="asset_types")
     assets = relationship("Asset", back_populates="asset_type")
@@ -49,10 +49,10 @@ class Asset(Base):
     __tablename__ = "asset"
     id = Column(Integer, primary_key=True)
     name = Column(String)
-    quantity = Column(Numeric)
-    purchase_price = Column(Numeric)
-    current_price = Column(Numeric)
-    commission = Column(Numeric)
+    quantity = Column(Float)
+    purchase_price = Column(Float)
+    current_price = Column(Float)
+    commission = Column(Float)
     portfolio_id = Column(Integer, ForeignKey("portfolio.id"))
     asset_type_id = Column(Integer, ForeignKey("asset_type.id"))
     portfolio = relationship("Portfolio", back_populates="assets")
@@ -65,7 +65,7 @@ class Transaction(Base):
     id = Column(Integer, primary_key=True)
     type = Column(Enum(TransactionType))
     created_at = Column(DateTime, default=datetime.now)
-    quantity = Column(Numeric)
-    price = Column(Numeric)
+    quantity = Column(Float)
+    price = Column(Float)
     asset_id = Column(Integer, ForeignKey("asset.id"))
     asset = relationship("Asset", back_populates="transactions")

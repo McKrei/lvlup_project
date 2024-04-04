@@ -1,0 +1,113 @@
+{% extends "base/base.html" %}
+
+{% block title %}InvestiTrack - Активы{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-12">
+    <!-- Заголовок таблицы Портфели -->
+    <h2 class="mb-4">Активы:</h2>
+    <!-- Таблица Портфели -->
+    <div class="table-responsive">
+      <table class="table table-hover table-shadow table-rounded">
+        <thead>
+          <tr>
+            <th scope="col">Название актива</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Цена покупки</th>
+            <th scope="col">Текущая цена</th>
+            <th scope="col">Комиссия</th>
+            <th scope="col">Портфель</th>
+            <th scope="col">Тип акции</th>
+            <th scope="col">Текущая цена за единицу</th>
+            <th scope="col"> </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Пример строки таблицы с формой для изменения текущей цены -->
+          {% for asset in data["assets"] %}
+          <tr>
+            <form action="/update-asset-price" method="post">
+              <td>{{asset["asset_name"]}}</td>
+              <td>{{asset["quantity"]}}</td>
+              <td>{{asset["purchase_price"]}}</td>
+              <td>{{asset["current_price"]}}</td>
+              <td>{{asset["commission"]}}</td>
+              <td>{{asset["portfolio_name"]}}</td>
+              <td>{{asset["asset_type"]}}</td>
+              <td>
+                <input type="number" name="current_price_per_unit" value="{{asset["price_one"]}}"
+                  class="form-control" />
+                <input type="hidden" name="asset_id" value="{{asset["id"]}}">
+                <input type="hidden" name="quantity" value="{{asset["quantity"]}}">
+              </td>
+              <td>
+                <button type="submit" class="btn">Обновить</button>
+              </td>
+            </form>
+          </tr>
+          {% endfor %}
+          <!-- Добавьте дополнительные строки с формами по аналогии -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="d-flex justify-content-center">
+  <div class="mt-5 col-lg-5">
+    <h2>Добавить новый Актив</h2>
+    <form action="/asset" method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Название Актива</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Введите название акции" required>
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Количество</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Количество" required>
+      </div>
+      <div class="mb-3">
+        <label for="purchase_price" class="form-label">Цена покупки</label>
+        <input type="number" class="form-control" id="purchase_price" name="purchase_price" placeholder="Цена покупки"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="current_price" class="form-label">Текущая цена</label>
+        <input type="number" class="form-control" id="current_price" name="current_price" placeholder="Текущая цена"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="commission" class="form-label">Комиссия</label>
+        <input type="number" class="form-control" id="commission" name="commission" placeholder="Комиссия">
+      </div>
+      <div class="mb-3">
+        <label for="portfolio_name" class="form-label">Портфель</label>
+        <select class="form-control select2" id="portfolio_name" name="portfolio_name" required data-allow-clear="true">
+          <option value="">Выберите портфель</option>
+          {% for portfolio in data["portfolio_names"] %}
+          <option value="{{portfolio}}">{{portfolio}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="asset_type_name" class="form-label">Тип Актива</label>
+        <select class="form-select select2" id="asset_type_name" name="asset_type_name" required
+          data-allow-clear="true">
+          <option value="">Выберите тип Актива</option>
+          {% for asset_type in data["asset_types"] %}
+          <option value="{{asset_type}}">{{asset_type}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Добавить Актив</button>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

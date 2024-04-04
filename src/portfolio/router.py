@@ -1,5 +1,7 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, status, Form
+from fastapi.requests import Request
 from fastapi.exceptions import HTTPException
+from fastapi.responses import RedirectResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from database.database import get_session
 from database.models import Portfolio, User
@@ -57,7 +59,9 @@ async def update_portfolio(
     asset = await CRUDPortfolio.get_by_id(session, portfolio_id)
     if not asset:
         raise HTTPException(status_code=404, detail="portfolio not found")
-    updated_asset = await CRUDPortfolio.update(session, portfolio_id, asset.model_dump())
+    updated_asset = await CRUDPortfolio.update(
+        session, portfolio_id, asset.model_dump()
+    )
     if not updated_asset:
         raise HTTPException(status_code=404, detail="portfolio not found")
     return updated_asset

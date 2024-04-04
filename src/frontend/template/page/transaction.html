@@ -1,0 +1,58 @@
+{% extends "base/base.html" %}
+
+{% block title %}InvestiTrack - Транзакции{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-12">
+    <!-- Заголовок таблицы Портфели -->
+    <h2 class="mb-4">Транзакции:</h2>
+
+    <!-- Таблица Портфели -->
+    <div class="table-responsive">
+      <table class="table table-hover table-shadow table-rounded">
+        <thead>
+          <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Вложения</th>
+            <th scope="col">Стоимость сейчас</th>
+            <th scope="col">% годовых</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Пример строки таблицы -->
+          <tr>
+            <td>Портфель 1</td>
+            <td>Описание портфеля 1</td>
+            <td>10,000₽</td>
+            <td>12,000₽</td>
+            <td>20%</td>
+          </tr>
+          <!-- Добавьте дополнительные строки согласно вашим данным -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="mt-5">
+  <h2>Добавить новый портфель</h2>
+  <form>
+    <div class="mb-3">
+      <label for="portfolioName" class="form-label">Имя портфеля</label>
+      <input type="text" class="form-control" id="portfolioName" placeholder="Введите имя портфеля">
+    </div>
+    <div class="mb-3">
+      <label for="portfolioDescription" class="form-label">Описание</label>
+      <textarea class="form-control" id="portfolioDescription" rows="3" placeholder="Описание портфеля" default=" "></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Добавить портфель</button>
+  </form>
+</div>
+
+
+{% endblock %}

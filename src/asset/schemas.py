@@ -13,6 +13,10 @@ class AssetBase(BaseModel):
     portfolio_id: int
     asset_type_id: int
 
+class AssetUpdate(AssetBase):
+    pass
+
+
 class AssetCreate(AssetBase):
     pass
 

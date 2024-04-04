@@ -35,6 +35,7 @@ class CRUDBase:
         result = await session.execute(query)
         return result.scalar_one_or_none()
 
+
     @classmethod
     async def update(
         cls, session: AsyncSession, obj: model, update_data: dict
