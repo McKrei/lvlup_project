@@ -15,7 +15,7 @@ from transaction.router import router as transaction_router
 from ip_weather.router import router as ip_weather_router
 from frontend.router import router as frontend_router
 from exception import RedirectException
-
+from config import SECRET_KEY
 
 
 @asynccontextmanager
@@ -27,7 +27,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
-app.add_middleware(SessionMiddleware, secret_key="your_secret_key")
+app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 
 app.mount("/assets", StaticFiles(directory="frontend/assets"), name="assets")
 
